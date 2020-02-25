@@ -8,21 +8,21 @@ import pl.stqa.pft.automation_practice.appmanager.ApplicationManager;
 public class TestBase {
 
 
-  protected  final ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
+    protected final ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
 
-      @BeforeMethod(alwaysRun = true)
-      public void setUp() throws Exception {
+    @BeforeMethod(alwaysRun = true)
+    public void setUp() throws Exception {
         app.init();
 
-      }
+    }
 
-      @AfterMethod(alwaysRun = true)
-      public void tearDown()  {
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
         app.stop();
 
-      }
+    }
 
 
-  }
+}
 
 
