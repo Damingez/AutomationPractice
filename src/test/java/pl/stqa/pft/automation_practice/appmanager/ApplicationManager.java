@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
+import pl.stqa.pft.automation_practice.pages.AuthenticationPage;
 import pl.stqa.pft.automation_practice.pages.SumUpPage;
 import pl.stqa.pft.automation_practice.pages.ProductListPage;
 import pl.stqa.pft.automation_practice.pages.ProductPage;
@@ -23,6 +24,7 @@ public class ApplicationManager {
     private ProductListPage productListPage;
     private ProductPage productPage;
     private SumUpPage sumUpPage;
+    private AuthenticationPage authenticationPage;
 
     public ApplicationManager(String browser) {
 
@@ -54,6 +56,7 @@ public class ApplicationManager {
         productListPage = new ProductListPage(wd);
         productPage = new ProductPage(wd);
         sumUpPage = new SumUpPage(wd);
+        authenticationPage = new AuthenticationPage(wd);
 
     }
 
@@ -66,6 +69,8 @@ public class ApplicationManager {
     }
 
     public SumUpPage sumUpPage() {return sumUpPage;}
+
+    public AuthenticationPage authenticationPage() {return authenticationPage;}
 
     public void stop() {
       wd.quit();
