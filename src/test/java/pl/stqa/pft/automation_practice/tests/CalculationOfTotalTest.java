@@ -13,8 +13,12 @@ public class CalculationOfTotalTest extends TestBase {
         app.productPage().checkifHeaderIsPresent();
         app.productPage().chooseSize("M");
         app.productPage().addProductToCart();
-        app.sumUpPage().checkTotaPricelCalc();
 
+       double productTotal = app.sumUpPage().getProductTotal();
+       double shippingCost = app.sumUpPage().getShippingCost();
+       double total = app.sumUpPage().getTotal();
+
+        Assert.assertEquals(productTotal + shippingCost, total);
     }
 
 }
