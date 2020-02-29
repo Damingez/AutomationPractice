@@ -28,4 +28,8 @@ public class AuthenticationPage extends Page {
         driver.findElement(By.id("SubmitLogin")).click();
     }
 
+    public void goTo(){
+        driver.findElement(By.linkText("Sign in")).click();
+    }
+
 }

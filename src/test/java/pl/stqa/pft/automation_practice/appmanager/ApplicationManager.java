@@ -5,10 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
-import pl.stqa.pft.automation_practice.pages.AuthenticationPage;
-import pl.stqa.pft.automation_practice.pages.SumUpPage;
-import pl.stqa.pft.automation_practice.pages.ProductListPage;
-import pl.stqa.pft.automation_practice.pages.ProductPage;
+import pl.stqa.pft.automation_practice.pages.*;
 
 import java.io.File;
 import java.io.FileReader;
@@ -25,6 +22,7 @@ public class ApplicationManager {
     private ProductPage productPage;
     private SumUpPage sumUpPage;
     private AuthenticationPage authenticationPage;
+    private RegistrationPage registrationPage;
 
     public ApplicationManager(String browser) {
 
@@ -51,12 +49,13 @@ public class ApplicationManager {
                 break;
         }
 
-        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         wd.get(properties.getProperty("web.baseUrl"));
         productListPage = new ProductListPage(wd);
         productPage = new ProductPage(wd);
         sumUpPage = new SumUpPage(wd);
         authenticationPage = new AuthenticationPage(wd);
+        registrationPage = new RegistrationPage(wd);
 
     }
 
@@ -71,6 +70,8 @@ public class ApplicationManager {
     public SumUpPage sumUpPage() {return sumUpPage;}
 
     public AuthenticationPage authenticationPage() {return authenticationPage;}
+
+    public RegistrationPage registrationPage() {return registrationPage;}
 
     public void stop() {
       wd.quit();
